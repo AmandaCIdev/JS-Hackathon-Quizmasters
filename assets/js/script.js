@@ -1,12 +1,21 @@
-const API_URL = "https://opentdb.com/api.php?amount=10&category=13&difficulty=medium&type=multiple";
-
+// API URL Compononents
+const API_URL_ROOT = "https://opentdb.com/api.php?amount=10&category=";
+const API_URL_MIDDLE = "&difficulty=";
+const API_URL_TAIL = "&type=multiple";
+// Initialise global variables
+const categories = [10, 13, 22];
+const difficulties = ["easy", "medium", "hard"];
 let questionData = [];
 let score = 0;
 
+// Run any non event-triggered functions
 getQuestions();
 
+// Function definitions
+
+// Fetch the questions from the API for the selected category & difficulty
 async function getQuestions() {
-    const response = await fetch(API_URL);
+    const response = await fetch(`${API_URL_ROOT}${categories[0]}${API_URL_MIDDLE}${difficulty}${API_URL_TAIL}`);
     console.log(response);
     questionData = await response.json();
     console.log(questionData);
