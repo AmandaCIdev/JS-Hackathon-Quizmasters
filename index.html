@@ -29,20 +29,17 @@
    <!-- this area is for the section on selecting a category -->
     <div class="categoriesPopout container" id="popOut2">
         <p id="categories">Categories</p>
-        <div class="option">
-            <input type="radio" name="answer" id="radioCat1" class="rbutton cat-choice">
-            <label for="radioCat1" id="radio1Label"></label>
+        <div class="category h-10" id="category1">
+            
         </div>
-        <div class="option">
-            <input type="radio" name="answer" id="radioCat2" class="rbutton cat-choice">  
-            <label for="radioCat2" id="radio2Label"></label>
+        <div class="category h-10" id="category2">
+            
         </div>
-        <div class="option">
-            <input type="radio" name="answer" id="radioCat3" class="rbutton cat-choice">
-            <label for="radioCat3" id="radio3Label"></label>
+        <div class="category h-10" id="category3">
+            
         </div>
        
-        <input type="submit" value="Check" id="button" class="btn btn-primary btn-block" onclick="checkAnswer()">
+        <input type="submit" value="Start Quiz!" id="categoryButton" class="btn btn-primary btn-block" onclick="runQuiz()">
     </div>
 
 
@@ -63,6 +60,9 @@
         <div class="option">
             <input type="radio" name="answer" id="radio4" class="rbutton">
             <label for="radio4" id="radio4Label"></label>
+        </div>
+        <div id="choose">
+            <p>Please select an option</p>
         </div>
         <input type="submit" value="Check" id="button" class="btn btn-primary btn-block" onclick="checkAnswer()">
     </div>
