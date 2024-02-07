@@ -12,7 +12,7 @@
 
 </head>
 <body>
-    <div class="questionPopout">
+    <div class="questionPopout" id="popOut3">
         <p id="question">Question</p>
         <div class="option">
             <input type="radio" name="answer" id="radio1" class="rbutton">
@@ -30,9 +30,12 @@
             <input type="radio" name="answer" id="radio4" class="rbutton">
             <label for="radio4" id="radio4Label"></label>
         </div>
+        <div id="choose">
+            <p>Please select an option</p>
+        </div>
         <input type="submit" value="Check" id="button" class="btn btn-primary btn-block" onclick="checkAnswer()">
     </div>
-
+    <div id="popOut4"></div>
     <!-- Bootstrap JS -->
 
     <!-- JS -->
