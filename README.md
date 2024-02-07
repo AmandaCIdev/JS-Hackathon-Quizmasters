@@ -22,7 +22,7 @@ Quizmasters is an interactive web application designed to bring the quiz experie
 
 ## UX/UI:
 
-+ Simple navigation and clear instructions ensure a smooth user experience for all ages and skill levels.
++ Simple navigation: A clear instruction to ensure a smooth user experience for all ages and skill levels.
 + Responsive Design: Adapts to different devices, from smartphones to desktops, for accessibility and convenience to all users.
 + Visually Appealing: Produce visuals and animations to keep users engaged throughout the quiz.
 
@@ -49,13 +49,20 @@ Quizmasters is an interactive web application designed to bring the quiz experie
 
 
 
-Validation:
+## Validation:
 
 
 ## Testing:
 
 + Testing throughout project to ensure individual components function as expected.
 + User testing with diverse demographics helps identify and address usability issues.
+
+
+| Feature | Discription | Pass/ Fail |
+|---|---|---|
+| Cell 1, row 1 | Cell 2, row 1 | Cell 3, row 1 |
+| Cell 1, row 2 | Cell 2, row 2 | Cell 3, row 2 |
+
 
 ## Deployment:
 
@@ -69,16 +76,18 @@ Validation:
     add image here
 
 
-Bugs & Fixes:
+## Bugs & Fixes:
 
-Credits:
+## Credits:
 
 + Colour pallets website to choose colours
     + https://www.color-hex.com/color-palettes/
 + Google Fonts
     + https://fonts.google.com/specimen/Limelight
 + Trivia API
-    + https://opentdb.com 
+    + https://opentdb.com
++ To test if website responsiveon all devices
+    + https://ui.dev/amiresponsive
 
 Future Features:
 
