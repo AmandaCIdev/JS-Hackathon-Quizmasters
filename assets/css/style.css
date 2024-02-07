@@ -1,30 +1,9 @@
-* {
-    box-sizing:border-box;
-    /* border: 1px solid gray; */
-    margin: 0;
-    padding: 0; 
-    /* background-color: yellow; */
-  }
-body{
-    background-color: yellow;
-}
-.container{
-    height: auto;
-    width: auto;
-    position: relative;
-    /* background-color: yellow; */
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
-
-*{
-    font-family: 'Limelight', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap’);
 
 
 #choose {
     display: none;
-    color: palevioletred;
+    color: #3F00FF;
 }
 /* Welcome screen div styling */
 #pop-out1{
