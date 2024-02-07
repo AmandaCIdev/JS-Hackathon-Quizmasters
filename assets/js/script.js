@@ -13,6 +13,7 @@ getQuestions();
 
 // Function definitions
 
+
 // Fetch the questions from the API for the selected category & difficulty
 async function getQuestions() {
     const response = await fetch(`${API_URL_ROOT}${categories[0]}${API_URL_MIDDLE}${difficulty}${API_URL_TAIL}`);
@@ -29,6 +30,7 @@ async function getQuestions() {
     displayQuestion();
 }
 
+// Display a question to the user
 function displayQuestion() {
     document.getElementById('question').innerHTML = questionData.results[0].question;
     // assemble array of answers to avoid always having correct answer in same place
@@ -49,12 +51,16 @@ function checkAnswer() {
         }
     }
     if (selectedAnswer == 0){
+        // User has not entered a response: display prompt
         document.getElementById('choose').style.display = 'block';
     } else {
+        // Hide any prompt that has been displayed
         document.getElementById('choose').style.display = 'none';
+        // Check whether the user has selected the correct answer
         if (document.getElementById(`radio${selectedAnswer}Label`).innerHTML == questionData.results[0].correct_answer) {
             // User was right
             console.log("correct");
+            // Increment score
             score++;
         } else {
             console.log("incorrect");
@@ -68,9 +74,8 @@ function checkAnswer() {
 function nextQuestion(selectedAnswer) {
     document.getElementById(`radio${selectedAnswer}`).checked = false;
     // Get rid of the previous question
-    console.log(questionData.results[0]);
     questionData.results.shift();
-    console.log(questionData.results[0]);
+    // Either display next question or display end of quiz
     if (questionData.results.length != 0){
         // First question in array is now the next question
         displayQuestion();
