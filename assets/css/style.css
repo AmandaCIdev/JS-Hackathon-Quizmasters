@@ -1,26 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
 * {
     box-sizing:border-box;
     /* border: 1px solid gray; */
     margin: 0;
     padding: 0; 
+    font-family: 'Limelight', sans-serif;
     /* background-color: yellow; */
   }
 body{
-    background-color: yellow;
+    
 }
-.container{
-    height: auto;
-    width: auto;
-    position: relative;
-    /* background-color: yellow; */
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
-
-*{
-    font-family: 'Limelight', sans-serif;
-}
-
 
 #choose {
     display: none;
@@ -31,7 +20,7 @@ body{
     background-image: url("../images/quiz-night.png");
     background-repeat: no-repeat;
     background-size: contain;
-    height: 42rem;
+    height: 50rem;
     width: 80rem;
     color: #ffffff;
     background-color: yellow; 
@@ -40,39 +29,16 @@ body{
 }
 #welcome-div{
     position: absolute;
-    top: 10%;
-}
-
-#welcome-subscript{
-    position: absolute;
-    top: 20%;
-}
-
-#trivia-banner{
-    position: absolute;
-    top:30%;
-    width: 50vw;
-    height: 50vh;
+    top: 4%;
 }
 
 #overlay1{
-    
-    
-    
+        
     background-color: rgba(45, 45, 45, 0.5);
     text-align: center;
-    
-    
-    
+      
     /* justify-content: center;
     align-items: center;  */
-}
-
-.gray {
-    background-color: rgba(45, 45, 45, 0.5);
-    
-    
-    
 }
 
 #popOut4 {
