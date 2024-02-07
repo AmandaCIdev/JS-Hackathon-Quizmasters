@@ -7,34 +7,41 @@ const categories = [10, 13, 22];
 const difficulties = ["easy", "medium", "hard"];
 let questionData = [];
 let score = 0;
+let currentCategory = 0;
+let response;
+let thisData;
 
 // Run any non event-triggered functions
-getQuestions();
+getQuestions(categories[currentCategory]);
 
 // Function definitions
 
 
 // Fetch the questions from the API for the selected category & difficulty
-async function getQuestions() {
-    const response = await fetch(`${API_URL_ROOT}${categories[0]}${API_URL_MIDDLE}${difficulty}${API_URL_TAIL}`);
+async function getQuestions(category) {
+    console.log(`Loading questions for category ID ${category}`);
+    console.log(`${API_URL_ROOT}${category}${API_URL_MIDDLE}${difficulties[1]}${API_URL_TAIL}`);
+    response = await fetch(`${API_URL_ROOT}${category}${API_URL_MIDDLE}${difficulties[1]}${API_URL_TAIL}`);
     console.log(response);
-    questionData = await response.json();
-    console.log(questionData);
-    console.log(questionData.results[0].question);
-    console.log(questionData.results[0].correct_answer);
-    for (answer of questionData.results[0].incorrect_answers)
+    thisData = await response.json();
+    console.log(thisData);
+    questionData.push(thisData);
+    console.log(questionData[questionData.length-1]);
+    console.log(questionData[questionData.length-1]);
+    console.log(questionData[questionData.length-1].results[0].question);
+    console.log(questionData[questionData.length-1].results[0].correct_answer);
+    for (answer of questionData[questionData.length-1].results[0].incorrect_answers)
     {
         console.log(answer);
     }
-    console.log(document.getElementById('question'));
     displayQuestion();
 }
 
 // Display a question to the user
 function displayQuestion() {
-    document.getElementById('question').innerHTML = questionData.results[0].question;
+    document.getElementById('question').innerHTML = questionData[currentCategory].results[0].question;
     // assemble array of answers to avoid always having correct answer in same place
-    let answers = [questionData.results[0].correct_answer, ...questionData.results[0].incorrect_answers];
+    let answers = [questionData[currentCategory].results[0].correct_answer, ...questionData[currentCategory].results[0].incorrect_answers];
     // shuffle the options using sort() method
     answers.sort(() => Math.random() - 0.5);
     for (let i=0; i<answers.length; i++){
@@ -57,7 +64,7 @@ function checkAnswer() {
         // Hide any prompt that has been displayed
         document.getElementById('choose').style.display = 'none';
         // Check whether the user has selected the correct answer
-        if (document.getElementById(`radio${selectedAnswer}Label`).innerHTML == questionData.results[0].correct_answer) {
+        if (document.getElementById(`radio${selectedAnswer}Label`).innerHTML == questionData[currentCategory].results[0].correct_answer) {
             // User was right
             console.log("correct");
             // Increment score
@@ -74,16 +81,21 @@ function checkAnswer() {
 function nextQuestion(selectedAnswer) {
     document.getElementById(`radio${selectedAnswer}`).checked = false;
     // Get rid of the previous question
-    questionData.results.shift();
+    questionData[currentCategory].results.shift();
     // Either display next question or display end of quiz
-    if (questionData.results.length != 0){
+    if (questionData[currentCategory].results.length != 0){
         // First question in array is now the next question
         displayQuestion();
     } else {
-        // Quiz finished
-        document.getElementById('popOut3').style.display = 'none';
-        document.getElementById('popOut4').innerHTML = `Quiz complete! You scored ${score}`
-        document.getElementById('popOut4').style.display = 'block';
-        console.log(`Quiz complete! You scored ${score} out of 10.`);
+        // Quiz round finished
+        console.log(`Round ${currentCategory} complete! You scored ${score} out of 10.`);
+        currentCategory++;
+        if (currentCategory<categories.length){
+            getQuestions(categories[currentCategory]);
+        } else {
+            document.getElementById('popOut3').style.display = 'none';
+            document.getElementById('popOut4').innerHTML = `Quiz complete! You scored ${score}`
+            document.getElementById('popOut4').style.display = 'block';
+        }
     }
 }
