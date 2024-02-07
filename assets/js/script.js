@@ -1,29 +1,61 @@
-const API_URL = "https://opentdb.com/api.php?amount=10&category=13&difficulty=medium&type=multiple";
-
+// API URL Compononents
+const API_URL_ROOT = "https://opentdb.com/api.php?amount=10&category=";
+const API_URL_MIDDLE = "&difficulty=";
+const API_URL_TAIL = "&type=multiple";
+// Initialise global variables
+const categories = [10, 13, 22];
+const categoryNames = ["Entertainment: Books", 
+"Entertainment: Musicals &amp; Theatres", "Geography"];
+const difficulties = ["easy", "medium", "hard"];
 let questionData = [];
 let score = 0;
+let currentCategory = 0;
+let response;
+let thisData;
 
-getQuestions();
+// Populate HTML elements with category names
+for (let i=0; i<categoryNames.length; i++){
+    console.log(`Setting category name ${categoryNames[i]}`);
+    document.getElementById(`category${i+1}`).innerHTML = categoryNames[i];
+}
 
-async function getQuestions() {
-    const response = await fetch(API_URL);
+// Catch category popout button press
+function runQuiz() {
+    document.getElementById('popOut2').style.display = 'none';
+    getQuestions(categories[currentCategory]);
+    document.getElementById('popOut3').style.display = 'block';
+}
+
+// Run any non event-triggered functions
+
+// Function definitions
+
+
+// Fetch the questions from the API for the selected category & difficulty
+async function getQuestions(category) {
+    console.log(`Loading questions for category ID ${category}`);
+    console.log(`${API_URL_ROOT}${category}${API_URL_MIDDLE}${difficulties[1]}${API_URL_TAIL}`);
+    response = await fetch(`${API_URL_ROOT}${category}${API_URL_MIDDLE}${difficulties[1]}${API_URL_TAIL}`);
     console.log(response);
-    questionData = await response.json();
-    console.log(questionData);
-    console.log(questionData.results[0].question);
-    console.log(questionData.results[0].correct_answer);
-    for (answer of questionData.results[0].incorrect_answers)
+    thisData = await response.json();
+    console.log(thisData);
+    questionData.push(thisData);
+    console.log(questionData[questionData.length-1]);
+    console.log(questionData[questionData.length-1]);
+    console.log(questionData[questionData.length-1].results[0].question);
+    console.log(questionData[questionData.length-1].results[0].correct_answer);
+    for (answer of questionData[questionData.length-1].results[0].incorrect_answers)
     {
         console.log(answer);
     }
-    console.log(document.getElementById('question'));
     displayQuestion();
 }
 
+// Display a question to the user
 function displayQuestion() {
-    document.getElementById('question').innerHTML = questionData.results[0].question;
+    document.getElementById('question').innerHTML = questionData[currentCategory].results[0].question;
     // assemble array of answers to avoid always having correct answer in same place
-    let answers = [questionData.results[0].correct_answer, ...questionData.results[0].incorrect_answers];
+    let answers = [questionData[currentCategory].results[0].correct_answer, ...questionData[currentCategory].results[0].incorrect_answers];
     // shuffle the options using sort() method
     answers.sort(() => Math.random() - 0.5);
     for (let i=0; i<answers.length; i++){
@@ -40,12 +72,16 @@ function checkAnswer() {
         }
     }
     if (selectedAnswer == 0){
+        // User has not entered a response: display prompt
         document.getElementById('choose').style.display = 'block';
     } else {
+        // Hide any prompt that has been displayed
         document.getElementById('choose').style.display = 'none';
-        if (document.getElementById(`radio${selectedAnswer}Label`).innerHTML == questionData.results[0].correct_answer) {
+        // Check whether the user has selected the correct answer
+        if (document.getElementById(`radio${selectedAnswer}Label`).innerHTML == questionData[currentCategory].results[0].correct_answer) {
             // User was right
             console.log("correct");
+            // Increment score
             score++;
         } else {
             console.log("incorrect");
@@ -59,17 +95,21 @@ function checkAnswer() {
 function nextQuestion(selectedAnswer) {
     document.getElementById(`radio${selectedAnswer}`).checked = false;
     // Get rid of the previous question
-    console.log(questionData.results[0]);
-    questionData.results.shift();
-    console.log(questionData.results[0]);
-    if (questionData.results.length != 0){
+    questionData[currentCategory].results.shift();
+    // Either display next question or display end of quiz
+    if (questionData[currentCategory].results.length != 0){
         // First question in array is now the next question
         displayQuestion();
     } else {
-        // Quiz finished
-        document.getElementById('popOut3').style.display = 'none';
-        document.getElementById('popOut4').innerHTML = `Quiz complete! You scored ${score}`
-        document.getElementById('popOut4').style.display = 'block';
-        console.log(`Quiz complete! You scored ${score} out of 10.`);
+        // Quiz round finished
+        console.log(`Round ${currentCategory} complete! You scored ${score} out of 10.`);
+        currentCategory++;
+        if (currentCategory<categories.length){
+            getQuestions(categories[currentCategory]);
+        } else {
+            document.getElementById('popOut3').style.display = 'none';
+            document.getElementById('popOut4').innerHTML = `Quiz complete! You scored ${score}`
+            document.getElementById('popOut4').style.display = 'block';
+        }
     }
 }

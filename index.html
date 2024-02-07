@@ -12,35 +12,34 @@
 
 </head>
 
-
 <body>
     <!-- First contents of main area div is a Welcome -->
-    <div class="container gray" id="pop-out1">
-        <div class="row gray" id="overlay1">
-            <div class="col-8 offset-md-2 gray" id="welcome-div"><h2>WELCOME</h2><br><h2>TO</h2><br><h1>PUB QUIZ!</h1></div>
-            <div class="col-4 offset-md-4 gray"  id="welcome-subscript"><span>Winner gets a free meal for 2!</span></div>
-        </div>
-        <div class="row">
-            <div class="col-6 offset-md-3"><Img src="assets/images/triviabanner.png" id="trivia-banner"></Img></div>
-        </div>
+    <div class="row" id="popOut1">
+        <div class="col-sm-12 text-center"><h1>WELCOME TO PUB QUIZ!</h1></div>
+        <div class="col-sm-12 text-center">
+            <div class="img-container mx-auto">
+              <img src="assets/images/triviabanner.png" style="width: 30%;"></div>
+            </div>
+        <div class="col-sm-12 text-center"><p>Winner gets a free meal for 2!</p></div>
+        <div class="col-sm-12"><button type="button" class="btn btn-secondary">Secondary</button></div>
     </div>
+    
+    
+</div>
    <!-- this area is for the section on selecting a category -->
     <div class="categoriesPopout container" id="popOut2">
         <p id="categories">Categories</p>
-        <div class="option">
-            <input type="radio" name="answer" id="radioCat1" class="rbutton cat-choice">
-            <label for="radioCat1" id="radio1Label"></label>
+        <div class="category h-10" id="category1">
+            
         </div>
-        <div class="option">
-            <input type="radio" name="answer" id="radioCat2" class="rbutton cat-choice">  
-            <label for="radioCat2" id="radio2Label"></label>
+        <div class="category h-10" id="category2">
+            
         </div>
-        <div class="option">
-            <input type="radio" name="answer" id="radioCat3" class="rbutton cat-choice">
-            <label for="radioCat3" id="radio3Label"></label>
+        <div class="category h-10" id="category3">
+            
         </div>
        
-        <input type="submit" value="Check" id="button" class="btn btn-primary btn-block" onclick="checkAnswer()">
+        <input type="submit" value="Start Quiz!" id="categoryButton" class="btn btn-primary btn-block" onclick="runQuiz()">
     </div>
 
 
@@ -61,6 +60,9 @@
         <div class="option">
             <input type="radio" name="answer" id="radio4" class="rbutton">
             <label for="radio4" id="radio4Label"></label>
+        </div>
+        <div id="choose">
+            <p>Please select an option</p>
         </div>
         <input type="submit" value="Check" id="button" class="btn btn-primary btn-block" onclick="checkAnswer()">
     </div>
