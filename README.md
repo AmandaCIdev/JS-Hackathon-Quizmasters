@@ -96,6 +96,7 @@ Future Features:
 Implement video chat functionality for a more immersive social experience.
 Introduce power-ups or bonus questions to add strategic elements to the quiz.
 Integrate with social media platforms for wider reach and community building.
+
 **Frameworks, Libraries & Programs Used:**
 
 -Google Fonts: was used to import the 'Limelight' font into the style.css file which are used on all pages of the project.
