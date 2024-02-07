@@ -75,11 +75,18 @@ body{
     
 }
 
-/* #popOut3 {
+#popOut2,
+#popOut3 {
+    background-color: #3F00FF;
+    opacity: 0.5;
+    color: white;
+}
+
+#popOut3 {
     display: none;
-} */
+}
 
 #popOut4 {
-    /* display: none; */
+    display: none;
 }
 

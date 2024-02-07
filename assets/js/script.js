@@ -4,6 +4,8 @@ const API_URL_MIDDLE = "&difficulty=";
 const API_URL_TAIL = "&type=multiple";
 // Initialise global variables
 const categories = [10, 13, 22];
+const categoryNames = ["Entertainment: Books", 
+"Entertainment: Musicals &amp; Theatres", "Geography"];
 const difficulties = ["easy", "medium", "hard"];
 let questionData = [];
 let score = 0;
@@ -11,8 +13,20 @@ let currentCategory = 0;
 let response;
 let thisData;
 
+// Populate HTML elements with category names
+for (let i=0; i<categoryNames.length; i++){
+    console.log(`Setting category name ${categoryNames[i]}`);
+    document.getElementById(`category${i+1}`).innerHTML = categoryNames[i];
+}
+
+// Catch category popout button press
+function runQuiz() {
+    document.getElementById('popOut2').style.display = 'none';
+    getQuestions(categories[currentCategory]);
+    document.getElementById('popOut3').style.display = 'block';
+}
+
 // Run any non event-triggered functions
-getQuestions(categories[currentCategory]);
 
 // Function definitions
 
