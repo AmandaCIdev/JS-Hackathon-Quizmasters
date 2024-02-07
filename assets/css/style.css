@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap’);
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+
 
 
 #choose {
     display: none;
-    color: palevioletred;
+    color: #3F00FF;
 }
 
 #popOut4 {

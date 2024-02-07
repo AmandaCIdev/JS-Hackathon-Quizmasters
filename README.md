@@ -9,4 +9,4 @@
 -Balsamiq: was used to create the wireframes during the design process. -https://ui.dev/amiresponsive was used to test compatibility on all devices.
 "movie camera" Emoji - Download for free – Iconduck was used to import the ‘camera film’ icon, placed into the HTML, to be viewed on the tab in the browser.
 -Quora was used to get advice from software developers.
--Google was used for queries. -https://learn.codeinstitute.net/ci_program/ was used to revise instructions and collect code.
+-Google was used for queries. -https://learn.codeinstitute.net/ci_program/ was used to revise instructions and collect code. -https://cssgradient.io/shades-of-blue/ we used for a color blue.
