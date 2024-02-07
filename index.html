@@ -18,59 +18,65 @@
         <div class="col-sm-12 text-center"><h1>WELCOME TO PUB QUIZ!</h1></div>
         <div class="col-sm-12 text-center">
             <div class="img-container mx-auto">
-              <img src="assets/images/triviabanner.png" style="width: 30%;"></div>
+              <img src="assets/images/triviabanner.png" style="width: 65%;"></div>
             </div>
         <div class="col-sm-12 text-center"><p>Winner gets a free meal for 2!</p></div>
-        <div class="col-sm-12"><button type="button" class="btn btn-secondary">Secondary</button></div>
+        <div class="col-sm-12 text-center"><button type="button" class="btn btn-secondary">Start</button></div>
     </div>
     
     
 </div>
    <!-- this area is for the section on selecting a category -->
-    <div class="categoriesPopout container" id="popOut2">
-        <p id="categories">Categories</p>
-        <div class="category h-10" id="category1">
-            
+   <div class="categoriesPopout container" id="popOut2">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <p id="categories">Categories</p>
         </div>
-        <div class="category h-10" id="category2">
-            
+        <div class="category h-10 col-sm-12 text-center" id="category1">
         </div>
-        <div class="category h-10" id="category3">
-            
+        <div class="category h-10 col-sm-12 text-center" id="category2">
+
         </div>
-       
-        <input type="submit" value="Start Quiz!" id="categoryButton" class="btn btn-primary btn-block" onclick="runQuiz()">
+        <div class="category h-10 col-sm-12 text-center" id="category3">
+
+        </div>
+
+        <div class="col-sm-12 text-center"><input type="submit" value="Start Quiz!" id="categoryButton" class="btn btn-primary btn-block" onclick="runQuiz()"></div>
     </div>
+</div>
 
 
-    <div class="questionPopout container" id="popOut3">
-        <p id="question">Questions</p>
-        <div class="option">
+<div class="questionPopout container" id="popOut3">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <p id="question">Questions</p>
+        </div>
+        <div class="option col-sm-12 text-center">
             <input type="radio" name="answer" id="radio1" class="rbutton">
             <label for="radio1" id="radio1Label"></label>
         </div>
-        <div class="option">
-            <input type="radio" name="answer" id="radio2" class="rbutton">  
+        <div class="option col-sm-12 text-center">
+            <input type="radio" name="answer" id="radio2" class="rbutton">
             <label for="radio2" id="radio2Label"></label>
         </div>
-        <div class="option">
+        <div class="option col-sm-12 text-center">
             <input type="radio" name="answer" id="radio3" class="rbutton">
             <label for="radio3" id="radio3Label"></label>
         </div>
-        <div class="option">
+        <div class="option col-sm-12 text-center">
             <input type="radio" name="answer" id="radio4" class="rbutton">
             <label for="radio4" id="radio4Label"></label>
         </div>
-        <div id="choose">
+        <div id="choose" class="col-sm-12 text-center">
             <p>Please select an option</p>
         </div>
-        <input type="submit" value="Check" id="button" class="btn btn-primary btn-block" onclick="checkAnswer()">
+        <div class="col-sm-12 text-center"><input type="submit" value="Check" id="button" class="btn btn-primary btn-block" onclick="checkAnswer()"></div>
     </div>
-
+</div>
     <div class="container" id="popOut4">
-        <div class="row">
-            <div class="col-4 offset-md-4">"TEAM_NAME" you scored {} correct answers out of{}!</div>
-            <div class="col-2 0ffset-md-5">Submit Score!</div>
+        <div class="row ">
+            <div class="col-sm-12 text-center">"TEAM_NAME" you scored {} correct answers out of{}!</div>
+            <div class="col-sm-12 text-center">Submit Score!</div>
         </div>
     </div>
 
