@@ -12,8 +12,28 @@
 
 </head>
 <body>
-    
-    <!-- Bootstrp JS -->
+    <div class="questionPopout">
+        <p id="question">Question</p>
+        <div class="option">
+            <input type="radio" name="answer" id="radio1" class="rbutton">
+            <label for="radio1" id="radio1Label"></label>
+        </div>
+        <div class="option">
+            <input type="radio" name="answer" id="radio2" class="rbutton">  
+            <label for="radio2" id="radio2Label"></label>
+        </div>
+        <div class="option">
+            <input type="radio" name="answer" id="radio3" class="rbutton">
+            <label for="radio3" id="radio3Label"></label>
+        </div>
+        <div class="option">
+            <input type="radio" name="answer" id="radio4" class="rbutton">
+            <label for="radio4" id="radio4Label"></label>
+        </div>
+        <input type="submit" value="Check" id="button" class="btn btn-primary btn-block" onclick="checkAnswer()">
+    </div>
+
+    <!-- Bootstrap JS -->
 
     <!-- JS -->
     <script src="assets/js/script.js"></script>
