@@ -80,6 +80,8 @@ Quizmasters is an interactive web application designed to bring the quiz experie
 
 ## Credits:
 
++ Colour pallets
+    + https://cssgradient.io/shades-of-blue/
 + Colour pallets website to choose colours
     + https://www.color-hex.com/color-palettes/
 + Google Fonts
