@@ -15,6 +15,13 @@ body{
     /* background-color: yellow; */
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+
+*{
+    font-family: 'Limelight', sans-serif;
+}
+
+
 #choose {
     display: none;
     color: palevioletred;
