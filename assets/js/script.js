@@ -39,12 +39,37 @@ function checkAnswer() {
             selectedAnswer=i;
         }
     }
-    if (document.getElementById(`radio${selectedAnswer}Label`).innerHTML == questionData.results[0].correct_answer) {
-        // User was right
-        console.log("correct");
-        score++;
-        
+    if (selectedAnswer == 0){
+        document.getElementById('choose').style.display = 'block';
     } else {
-        console.log("incorrect");
+        document.getElementById('choose').style.display = 'none';
+        if (document.getElementById(`radio${selectedAnswer}Label`).innerHTML == questionData.results[0].correct_answer) {
+            // User was right
+            console.log("correct");
+            score++;
+        } else {
+            console.log("incorrect");
+        }
+        // Move onto the next question
+        nextQuestion(selectedAnswer);
+    }
+}
+
+// Display next question until end of quiz
+function nextQuestion(selectedAnswer) {
+    document.getElementById(`radio${selectedAnswer}`).checked = false;
+    // Get rid of the previous question
+    console.log(questionData.results[0]);
+    questionData.results.shift();
+    console.log(questionData.results[0]);
+    if (questionData.results.length != 0){
+        // First question in array is now the next question
+        displayQuestion();
+    } else {
+        // Quiz finished
+        document.getElementById('popOut3').style.display = 'none';
+        document.getElementById('popOut4').innerHTML = `Quiz complete! You scored ${score}`
+        document.getElementById('popOut4').style.display = 'block';
+        console.log(`Quiz complete! You scored ${score} out of 10.`);
     }
 }
