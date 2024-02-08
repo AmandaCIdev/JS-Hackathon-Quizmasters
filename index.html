@@ -18,18 +18,18 @@
     <div class="row" id="popOut1">
         <div class="col-sm-12 text-center"><h1>WELCOME TO PUB QUIZ!</h1></div>
         <div class="col-sm-12 text-center">
-            <div class="img-container mx-auto">
-                <img id="trivia-banner" src="assets/images/triviabanner.png" style="width: 65%;"></div>
+            <div class="img-container mx-auto" id="home-image">
+                <img src="assets/images/triviabanner.png" style="width: 65%;"></div>
             </div>
-        <div class="col-sm-12 text-center"><p>Winner gets a free meal for 2!</p></div>
-        <div class="col-sm-12 text-center"><button type="button" class="btn btn-primary" onclick="goToCategories()">Go to the Quiz</button></div>
+        <div class="col-sm-12 text-center" id="quiz-prize"><p>Winner gets a free meal for 2!</p></div>
+        <div class="col-sm-12 text-center"><button type="button" class="btn btn-secondary" onclick="goToCategories()">Go to the Quiz</button></div>
     </div>
 
-    <div class="container-fluid" id="trivia-logo">
+    <div class="container" id="trivia-logo">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="img-container d-flex flex-row-reverse">
-                    <img src="" style="width: 10%;">
+            <div class="col-sm-12 text-center">
+                <div class="img-container">
+                    <img src="assets/images/triviabanner.png" style="width: 60%;" id="home-image">
                 </div>
             </div>
         </div>
@@ -38,9 +38,9 @@
     
    <!-- this area is for the section on selecting a category -->
 <div class="categoriesPopout container" id="popOut2">
-    <div class="row ">
+    <div class="row">
         <div class="col-sm-12 text-center">
-            <p id="categories">Categories</p>
+            <h2 id="categories">Categories</h2>
         </div>
         <div class="category h-10 col-sm-12 text-center" id="category1">
         </div>
@@ -59,21 +59,21 @@
 <div class="questionPopout container" id="popOut3">
     <div class="row d-flex justify-content-center">
         <div class="col-sm-12 text-center">
-            <p id="question">Questions</p>
+            <h2 id="question">Questions</h2>
         </div>
-        <div class="option col-sm-6 offset-3 text-start mt-3 ">
+        <div class="option col-sm-6 offset-2 text-start mt-3 ">
             <input type="radio" name="answer" id="radio1" class="rbutton">
             <label for="radio1" id="radio1Label"></label>
         </div>
-        <div class="option col-sm-6 offset-3 text-start">
+        <div class="option col-sm-6 offset-2 text-start">
             <input type="radio" name="answer" id="radio2" class="rbutton">
             <label for="radio2" id="radio2Label"></label>
         </div>
-        <div class="option col-sm-6 offset-3 text-start">
+        <div class="option col-sm-6 offset-2 text-start">
             <input type="radio" name="answer" id="radio3" class="rbutton">
             <label for="radio3" id="radio3Label"></label>
         </div>
-        <div class="option col-sm-6 offset-3 text-start mb-3">
+        <div class="option col-sm-6 offset-2 text-start mb-3">
             <input type="radio" name="answer" id="radio4" class="rbutton">
             <label for="radio4" id="radio4Label"></label>
         </div>

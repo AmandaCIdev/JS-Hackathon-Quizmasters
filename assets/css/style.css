@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
 * {
     box-sizing:border-box;
-    /* border: 1px solid gray; */
     margin: 0;
     padding: 0; 
     font-family: 'Limelight', sans-serif;
     font-size: 24;
-    /* background-color: yellow; */
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
   }
 
 
@@ -31,58 +38,82 @@
     color: #ffffff;
     background-color: yellow; 
     border-radius: 1rem;    
-    /* background-color:black; */
-}
-#welcome-div{
-    position: absolute;
-    top: 4%;
 }
 
-#overlay1{
-        
-    background-color: rgba(45, 45, 45, 0.5);
-    text-align: center;
-      
-    /* justify-content: center;
-    align-items: center;  */
+img {
+    border-radius: 1rem;
+    margin-top: 5rem;
+}
+
+#quiz-prize {
+  margin-top: 5rem;
 }
 
 
 #trivia-logo {
     display: none;
+    margin-top: 5rem;
 }
 
 #popOut2,
 #popOut3,
 #popOut4 {
     background-color: #3F00FF;
-    /* opacity: 0.5; */
     color: white;
-    width: 70%;
-    height: 27rem;
+    width: 90%;
+    height: 80%;
     border-radius: 1.5rem;
     background-image: linear-gradient(to right, rgb(121, 32, 223) , rgb(72, 228, 243));
     padding: 1rem;
     display: none;
     line-height: 2.5rem;
     align-items: center;
-    margin-top: 10rem;
-
+    margin-top: 5rem;
 }
 
-.progress{
-    display: none;
+#popOut4 {
+  height: 35vh;
 }
 
-.btn{
-    background-color: indigo;
+@media only screen and (min-width: 400px) {
+  h1 {
+      font-size: 3rem;
+      margin-top: 1rem
+    }
 }
 
-#progressBar {
-    width: 80%;
-    height: 3rem;
-    margin-top: 0.8rem;
+@media only screen and (min-width: 740px) {
+h1 {
+    font-size: 6rem;
+    margin-top: 1rem
+  }
+
+  #trivia-logo {
+    width: 50%;
+  }
 }
 
+@media only screen and (min-width: 900px) {
+  #quiz-prize {
+    margin-top: 3rem;
+  }
 
+  #home-image {
+    width: 50%;
+  }
+}
 
+@media only screen and (min-width: 1200px) {
+  img {
+    margin-top: 4rem;
+  }
+  #quiz-prize {
+    margin-top: 2rem;
+  }
+  #trivia-logo {
+    width: 60%;
+  }
+  #home-image {
+    width: 50%;
+  }
+}
