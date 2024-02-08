@@ -168,7 +168,7 @@ function nextQuestion(selectedAnswer) {
     // Get rid of the previous question
     questionData[currentCategory].results.shift();
     // Either display next question or display end of quiz
-    if (questionData[currentCategory].results.length != 0){
+   if (questionData[currentCategory].results.length != 0){
         // First question in array is now the next question
         displayQuestion();
     } else {
@@ -195,3 +195,23 @@ function displayQuizComplete() {
     }
     document.getElementById(`results4`).innerText = `Total Score: ${totalScore}/${nQuestionsPerRound*categories.length}`;
 }
+
+   // Function to reset the quiz and play again
+   function playAgain() {
+    
+    score = 0;
+    currentCategory = 0;
+    questionData = [];
+    
+    // Hide end of quiz message
+    document.getElementById('popOut4').style.display = 'none';
+    
+    // Show category selection screen
+    goToCategories();
+}
+
+// Add event listener to execute playAgain() after DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+    // Call playAgain function after DOM is fully loaded
+    playAgain();
+});
