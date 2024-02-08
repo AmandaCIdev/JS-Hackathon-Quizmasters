@@ -12,12 +12,14 @@ let score = 0;
 let currentCategory = 0;
 let response;
 let thisData;
+const progressBar = document.getElementById('progressBar');
 
 // Function to move from landing page to category selection
 function goToCategories() {
     document.getElementById("popOut1").style.display = 'none';
     document.getElementById("trivia-logo").style.display = "block"
     document.getElementById('popOut2').style.display = 'block';
+    
 }
 
 
@@ -32,6 +34,7 @@ function runQuiz() {
     getQuestions(categories[currentCategory]);
     document.getElementById('popOut2').style.display = 'none';
     document.getElementById('popOut3').style.display = 'block';
+    document.getElementById('progress-bar').style.display ="block";
 }
 
 // Run any non event-triggered functions
@@ -102,6 +105,9 @@ function checkAnswer() {
 // Display next question until end of quiz
 function nextQuestion(selectedAnswer) {
     document.getElementById(`radio${selectedAnswer}`).checked = false;
+    let currentProgress = progressBar.getAttribute('value');
+    currentProgress = Number.parseInt(progressBar);
+    progressBar.setAttribute(`${currentProgress+3}`, 'value');
     // Get rid of the previous question
     questionData[currentCategory].results.shift();
     // Either display next question or display end of quiz

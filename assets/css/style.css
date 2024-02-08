@@ -12,7 +12,14 @@
 
 #choose {
     display: none;
-    color: palevioletred;
+    color: rgb(65, 5, 3);
+    font-size: 1.5rem;
+    border: 2px solid rgb(65, 5, 3);
+    width: 30rem;
+    height: 2.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255,255,255,0.5);
 }
 /* Welcome screen div styling */
 #pop-out1{
@@ -40,6 +47,7 @@
     align-items: center;  */
 }
 
+
 #trivia-logo {
     display: none;
 }
@@ -61,4 +69,20 @@
     margin-top: 10rem;
 
 }
+
+.progress{
+    display: none;
+}
+
+.btn{
+    background-color: indigo;
+}
+
+#progressBar {
+    width: 80%;
+    height: 3rem;
+    margin-top: 0.8rem;
+}
+
+
 
