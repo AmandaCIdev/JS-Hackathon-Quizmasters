@@ -13,12 +13,14 @@ let currentCategory = 0;
 let response;
 let thisData;
 let firstTime = true;
+const progressBar = document.getElementById('progressBar');
 
 // Function to move from landing page to category selection
 function goToCategories() {
     document.getElementById("popOut1").style.display = 'none';
     document.getElementById("trivia-logo").style.display = "block"
     document.getElementById('popOut2').style.display = 'block';
+    
 }
 
 
@@ -34,6 +36,7 @@ function runQuiz() {
     document.getElementById('currentCategoryHeading').innerText = `Round ${currentCategory+1} of 3: ${categoryNames[currentCategory]}`;
     document.getElementById('popOut2').style.display = 'none';
     document.getElementById('popOut3').style.display = 'block';
+    document.getElementById('progressBar').style.display ="block";
 }
 
 // Run any non event-triggered functions
@@ -154,6 +157,9 @@ function nextQuestion(selectedAnswer) {
     for(let i=1; i<5; i++){
         document.getElementById(`radio${i}Label`).style.backgroundColor = '';
     }
+    let currentProgress = progressBar.getAttribute('value');
+    currentProgress = Number.parseInt(currentProgress);
+    progressBar.setAttribute('value', `${currentProgress+1}`);
     // Get rid of the previous question
     questionData[currentCategory].results.shift();
     // Either display next question or display end of quiz

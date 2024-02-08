@@ -3,18 +3,35 @@
     box-sizing:border-box;
     margin: 0;
     padding: 0; 
-    font-family: 'Limelight', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 24;
   }
 
   h1 {
     font-size: 2rem;
     margin-top: 2rem;
+    font-family: 'Limelight', sans-serif;
   }
 
   h2 {
     font-size: 1.5rem;
+    
   }
+  
+  .btn{
+    background-color: indigo;
+    font-family: 'Limelight', sans-serif;
+}
+
+#progressBar {
+    width: 80%;
+    height: 3rem;
+    margin-top: 2rem;
+    display: none;
+    vertical-align: baseline;
+    bottom: 5%;
+    
+}
 
   h3 {
     font-size: 1.3rem;
@@ -23,7 +40,14 @@
 
 #choose {
     display: none;
-    color: palevioletred;
+    color: rgb(65, 5, 3);
+    font-size: 1.5rem;
+    border: 2px solid rgb(65, 5, 3);
+    width: 30rem;
+    height: 2.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255,255,255,0.5);
 }
 /* Welcome screen div styling */
 #pop-out1{
@@ -46,9 +70,10 @@ img {
   margin-top: 5rem;
 }
 
+
 #trivia-logo {
     display: none;
-    margin-top: 5rem;
+    margin-top: -3rem;
 }
 
 #popOut2,
@@ -112,6 +137,7 @@ h1 {
   }
   #trivia-logo {
     width: 60%;
+    margin-top: 2rem;
   }
   #home-image {
     width: 50%;
