@@ -31,6 +31,7 @@ for (let i=0; i<categoryNames.length; i++){
 // Catch category popout button press
 function runQuiz() {
     getQuestions(categories[currentCategory]);
+    document.getElementById('currentCategoryHeading').innerText = `Round ${currentCategory+1} of 3: ${categoryNames[currentCategory]}`;
     document.getElementById('popOut2').style.display = 'none';
     document.getElementById('popOut3').style.display = 'block';
 }
@@ -57,6 +58,7 @@ async function getQuestions(category) {
     {
         console.log(answer);
     }
+    document.getElementById('currentCategoryHeading').innerText = `Round ${currentCategory+1} of 3: ${categoryNames[currentCategory]}`;
     displayQuestion();
 }
 
@@ -103,11 +105,12 @@ function getWhichSelected(showCorrect) {
 
 // check user response
 function checkAnswer() {
-    let theAnswers = getWhichSelected(true);
+    let theAnswers = getWhichSelected(false);
     if (theAnswers.selected == 0){
         // User has not entered a response: display prompt
         document.getElementById('choose').style.display = 'block';
     } else {
+        theAnswers = getWhichSelected(true);
         // Hide any prompt that has been displayed
         document.getElementById('choose').style.display = 'none';
         // Reset the button
@@ -121,14 +124,14 @@ function checkAnswer() {
         } else {
             console.log("incorrect");
         }
+        // Turn off the radio buttons
+        for (button of document.getElementsByClassName('rbutton')){
+            button.disabled=true;
+        }
+        // Change to the other button
+        document.getElementById("button").style.display = 'none';
+        document.getElementById("nextQbtn").style.display = 'inline-block';
     }
-    // Turn off the radio buttons
-    for (button of document.getElementsByClassName('rbutton')){
-        button.disabled=true;
-    }
-    // Change to the other button
-    document.getElementById("button").style.display = 'none';
-    document.getElementById("nextQbtn").style.display = 'inline-block';
 }
 
 // Called on click on button #nextQbtn
