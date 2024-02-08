@@ -9,6 +9,14 @@
     /* background-color: yellow; */
   }
 
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
 
 #choose {
     display: none;
@@ -26,6 +34,11 @@
     border-radius: 1rem;    
     /* background-color:black; */
 }
+
+img {
+    border-radius: 1rem;
+}
+
 #welcome-div{
     position: absolute;
     top: 4%;
@@ -42,6 +55,7 @@
 
 #trivia-logo {
     display: none;
+    margin-top: 1rem;
 }
 
 #popOut2,
@@ -58,3 +72,10 @@
     display: none;
 }
 
+
+
+@media only screen and (min-width: 700px) {
+h1 {
+    font-size: 6rem;
+  }
+}
