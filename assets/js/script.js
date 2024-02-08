@@ -12,6 +12,8 @@ let score = 0;
 let currentCategory = 0;
 let response;
 let thisData;
+const checkHTML = '<i class="fa-solid fa-check"></i>';
+const crossHTML = '<i class="fa-solid fa-check"></i>';
 
 // Function to move from landing page to category selection
 function goToCategories() {
@@ -78,7 +80,22 @@ function checkAnswer() {
         if (document.getElementById(`radio${i}`).checked){
             selectedAnswer=i;
         }
+        
+        if(document.getElementById(`radio${i}Label`).innerText == questionData[currentCategory].results[0].correct_answer) {
+            document.getElementById(`radio${i}Label`).innerText += checkHTML;
+            console.log ("true");
+        }else{
+            document.getElementById(`radio${i}Label`).innerText += crossHTML;
+            console.log ("true");
+        }
+        
     }
+ //TIMER
+
+        setTimeout(() => {
+           console.log("World");
+         }, 5000);
+
     if (selectedAnswer == 0){
         // User has not entered a response: display prompt
         document.getElementById('choose').style.display = 'block';
@@ -94,9 +111,11 @@ function checkAnswer() {
         } else {
             console.log("incorrect");
         }
+
         // Move onto the next question
         nextQuestion(selectedAnswer);
     }
+
 }
 
 // Display next question until end of quiz

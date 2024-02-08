@@ -61,17 +61,7 @@
 
 /*-----------radioCorrect------------*/
 
-#radio1Correct {
-    display: none;
+.radioCorrect {
+    display: none; 
 }
-#radio2Correct {
-    display: none;
-}
-#radio3Correct {
-    display: none;
-}
-#radio4Correct {
-    display: none;
-}
-
-
+ 
