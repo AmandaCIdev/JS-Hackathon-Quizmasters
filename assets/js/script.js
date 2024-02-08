@@ -13,6 +13,13 @@ let currentCategory = 0;
 let response;
 let thisData;
 
+// Function to move from landing page to category selection
+function goToCategories() {
+    document.getElementById("popOut1").style.display = 'none';
+    document.getElementById('popOut2').style.display = 'block';
+}
+
+
 // Populate HTML elements with category names
 for (let i=0; i<categoryNames.length; i++){
     console.log(`Setting category name ${categoryNames[i]}`);
@@ -21,8 +28,8 @@ for (let i=0; i<categoryNames.length; i++){
 
 // Catch category popout button press
 function runQuiz() {
-    document.getElementById('popOut2').style.display = 'none';
     getQuestions(categories[currentCategory]);
+    document.getElementById('popOut2').style.display = 'none';
     document.getElementById('popOut3').style.display = 'block';
 }
 
