@@ -34,7 +34,7 @@ function runQuiz() {
     getQuestions(categories[currentCategory]);
     document.getElementById('popOut2').style.display = 'none';
     document.getElementById('popOut3').style.display = 'block';
-    document.getElementById('progress-bar').style.display ="block";
+    document.getElementById('progressBar').style.display ="block";
 }
 
 // Run any non event-triggered functions
@@ -106,8 +106,8 @@ function checkAnswer() {
 function nextQuestion(selectedAnswer) {
     document.getElementById(`radio${selectedAnswer}`).checked = false;
     let currentProgress = progressBar.getAttribute('value');
-    currentProgress = Number.parseInt(progressBar);
-    progressBar.setAttribute(`${currentProgress+3}`, 'value');
+    currentProgress = Number.parseInt(currentProgress);
+    progressBar.setAttribute('value', `${currentProgress+1}`);
     // Get rid of the previous question
     questionData[currentCategory].results.shift();
     // Either display next question or display end of quiz

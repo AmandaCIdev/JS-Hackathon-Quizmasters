@@ -3,19 +3,35 @@
     box-sizing:border-box;
     margin: 0;
     padding: 0; 
-    font-family: 'Limelight', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 24;
   }
 
   h1 {
     font-size: 2rem;
     margin-top: 2rem;
+    font-family: 'Limelight', sans-serif;
   }
 
   h2 {
     font-size: 1.5rem;
+    
   }
+  
+  .btn{
+    background-color: indigo;
+    font-family: 'Limelight', sans-serif;
+}
 
+#progressBar {
+    width: 80%;
+    height: 3rem;
+    margin-top: 2rem;
+    display: none;
+    vertical-align: baseline;
+    bottom: 5%;
+    
+}
 
 #choose {
     display: none;
@@ -52,7 +68,7 @@ img {
 
 #trivia-logo {
     display: none;
-    margin-top: 5rem;
+    margin-top: -3rem;
 }
 
 #popOut2,
@@ -112,6 +128,7 @@ h1 {
   }
   #trivia-logo {
     width: 60%;
+    margin-top: 2rem;
   }
   #home-image {
     width: 50%;
