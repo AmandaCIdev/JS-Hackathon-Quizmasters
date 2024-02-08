@@ -176,9 +176,13 @@ function nextQuestion(selectedAnswer) {
         if (currentCategory<categories.length){
             getQuestions(categories[currentCategory]);
         } else {
-            document.getElementById('popOut3').style.display = 'none';
-            document.getElementById('popOut4').innerHTML = `Quiz complete! You scored ${score}`
-            document.getElementById('popOut4').style.display = 'block';
+            displayQuizComplete();
         }
     }
+}
+
+function displayQuizComplete() {
+    document.getElementById('popOut3').style.display = 'none';
+    document.getElementById('popOut4').innerHTML = `Quiz complete! You scored ${score}`
+    document.getElementById('popOut4').style.display = 'block';
 }
