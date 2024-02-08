@@ -33,6 +33,11 @@
     
 }
 
+  h3 {
+    font-size: 1.3rem;
+  }
+
+
 #choose {
     display: none;
     color: rgb(65, 5, 3);
@@ -89,6 +94,10 @@ img {
 
 #popOut4 {
   height: 35vh;
+}
+
+#nextQbtn{
+    display: none;
 }
 
 @media only screen and (min-width: 400px) {
