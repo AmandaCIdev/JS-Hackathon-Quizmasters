@@ -80,7 +80,7 @@ img {
       font-size: 3rem;
       margin-top: 1rem
     }
-  }
+}
 
 @media only screen and (min-width: 740px) {
 h1 {
@@ -97,19 +97,23 @@ h1 {
   #quiz-prize {
     margin-top: 3rem;
   }
+
+  #home-image {
+    width: 50%;
   }
+}
 
-  @media only screen and (min-width: 1200px) {
-    img {
-      margin-top: 3rem;
-    }
-
-    #quiz-prize {
-      margin-top: 1rem;
-    }
-
-    #trivia-logo {
-      width: 60%;
-    }
-
-    }
+@media only screen and (min-width: 1200px) {
+  img {
+    margin-top: 4rem;
+  }
+  #quiz-prize {
+    margin-top: 2rem;
+  }
+  #trivia-logo {
+    width: 60%;
+  }
+  #home-image {
+    width: 50%;
+  }
+}
