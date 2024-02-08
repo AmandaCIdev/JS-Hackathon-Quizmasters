@@ -77,9 +77,9 @@ img {
     margin-top: -3rem;
 }
 
-#popOut2,
-#popOut3,
-#popOut4 {
+#popOut2, 
+#popOut3, 
+#popOut4 { 
     background-color: #3F00FF;
     color: white;
     width: 90%;
@@ -93,10 +93,26 @@ img {
     margin-top: 5rem;
 }
 
+#playAgainButton {
+    background-color: #007bff; 
+    color: rgb(247, 237, 237); /* White text color */
+    padding: 10px 20px; /* Padding around the text */
+    font-size: 16px; /* Font size */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+}
+
+#playAgainButton:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+
+
 /*-----------radioCorrect------------*/
 
 .radioCorrect {
-    /* display: none;  */
+    display: none; 
 }
  
 =======
