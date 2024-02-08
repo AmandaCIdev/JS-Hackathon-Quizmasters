@@ -39,25 +39,13 @@
     align-items: center;  */
 }
 
-.gray {
-    background-color: rgba(45, 45, 45, 0.5);
-    
-    
-    
-}
-
 #popOut2,
-#popOut3 {
+#popOut3,
+#popOut4 {
     background-color: #3F00FF;
     opacity: 0.5;
     color: white;
-}
-
-#popOut3 {
-    display: none;
-}
-
-#popOut4 {
+    width: 50%;
     display: none;
 }
 
