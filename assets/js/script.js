@@ -74,10 +74,12 @@ function displayQuestion() {
 // check user response
 function checkAnswer() {
     let selectedAnswer = 0;
+    let correctId;
     for (i=1; i<5; i++){
         if (document.getElementById(`radio${i}`).checked){
             selectedAnswer=i;
         }
+        if (document.getElementById(`radio${i}Label`).innerHTML == questionData[currentCategory].results[0].correct_answer)
     }
     if (selectedAnswer == 0){
         // User has not entered a response: display prompt
