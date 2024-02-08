@@ -124,7 +124,7 @@ function nextQuestion(selectedAnswer) {
     // Get rid of the previous question
     questionData[currentCategory].results.shift();
     // Either display next question or display end of quiz
-    if (questionData[currentCategory].results.length != 0){
+   if (questionData[currentCategory].results.length != 0){
         // First question in array is now the next question
         displayQuestion();
     } else {
@@ -135,8 +135,32 @@ function nextQuestion(selectedAnswer) {
             getQuestions(categories[currentCategory]);
         } else {
             document.getElementById('popOut3').style.display = 'none';
-            document.getElementById('popOut4').innerHTML = `Quiz complete! You scored ${score}`
             document.getElementById('popOut4').style.display = 'block';
+            document.getElementById('popOut4').innerHTML = `Quiz complete! You scored ${score}
+        <div class="row">
+        <div class="col-sm-12 text-center">"TEAM_NAME" you scored {} correct answers out of{}!</div>
+        <div class="col-sm-12 text-center">Submit Score!</div>
+        </div>
+        <div class="col-sm-12 text-center"><input type="submit" value="Play Again!" id="playAgainButton" class="btn btn-primary btn-block" onclick="playAgain()"></div>`;
         }
     }
 }
+   // Function to reset the quiz and play again
+function playAgain() {
+    
+    score = 0;
+    currentCategory = 0;
+    questionData = [];
+    
+    // Hide end of quiz message
+    document.getElementById('popOut4').style.display = 'none';
+    
+    // Show category selection screen
+    goToCategories();
+}
+
+// Add event listener to execute playAgain() after DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+    // Call playAgain function after DOM is fully loaded
+    playAgain();
+});
