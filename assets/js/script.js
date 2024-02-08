@@ -1,7 +1,9 @@
 // API URL Compononents
-const API_URL_ROOT = "https://opentdb.com/api.php?amount=10&category=";
+const API_URL_ROOT = "https://opentdb.com/api.php?amount=";
+const API_URL_P1 = "&category=";
 const API_URL_MIDDLE = "&difficulty=";
 const API_URL_TAIL = "&type=multiple";
+const nQuestionsPerRound = 5;
 // Initialise global variables
 const categories = [10, 13, 22];
 const categoryNames = ["Entertainment: Books", 
@@ -14,6 +16,7 @@ let response;
 let thisData;
 let firstTime = true;
 const progressBar = document.getElementById('progressBar');
+progressBar.setAttribute('max', `${nQuestionsPerRound*categories.length}`);
 
 // Function to move from landing page to category selection
 function goToCategories() {
@@ -47,7 +50,7 @@ function runQuiz() {
 // Fetch the questions from the API for the selected category & difficulty
 async function getQuestions(category) {
     console.log(`Loading questions for category ID ${category}`);
-    console.log(`${API_URL_ROOT}${category}${API_URL_MIDDLE}${difficulties[1]}${API_URL_TAIL}`);
+    console.log(`${API_URL_ROOT}${nQuestionsPerRound}${API_URL_P1}${category}${API_URL_MIDDLE}${difficulties[1]}${API_URL_TAIL}`);
     response = await fetch(`${API_URL_ROOT}${category}${API_URL_MIDDLE}${difficulties[1]}${API_URL_TAIL}`);
     console.log(response);
     thisData = await response.json();
