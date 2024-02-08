@@ -40,6 +40,10 @@
     align-items: center;  */
 }
 
+#trivia-logo {
+    display: none;
+}
+
 #popOut2,
 #popOut3,
 #popOut4 {
