@@ -30,7 +30,6 @@ function goToCategories() {
 
 // Populate HTML elements with category names
 for (let i=0; i<categoryNames.length; i++){
-    console.log(`Setting category name ${categoryNames[i]}`);
     document.getElementById(`category${i+1}`).innerHTML = categoryNames[i];
 }
 
@@ -47,7 +46,6 @@ function runQuiz() {
 // Fetch the questions from the API for the selected category & difficulty
 async function getQuestions(category) {
     console.log(`Loading questions for category ID ${category}`);
-    console.log(`${API_URL_ROOT}${nQuestionsPerRound}${API_URL_P1}${category}${API_URL_MIDDLE}${difficulties[1]}${API_URL_TAIL}`);
     response = await fetch(`${API_URL_ROOT}${nQuestionsPerRound}${API_URL_P1}${category}${API_URL_MIDDLE}${difficulties[1]}${API_URL_TAIL}`);
     thisData = await response.json();
     questionData.push(thisData);
@@ -100,16 +98,10 @@ function checkAnswer() {
         theAnswers = getWhichSelected(true);
         // Hide any prompt that has been displayed
         document.getElementById('choose').style.display = 'none';
-        // Reset the button
-        console.log("Resetting the button");
         // Check whether the user has selected the correct answer
         if (document.getElementById(`radio${theAnswers.selected}Label`).innerHTML == debugString(questionData[currentCategory].results[0].correct_answer)) {
-            // User was right
-            console.log("correct");
             // Increment score
             score++;
-        } else {
-            console.log("incorrect");
         }
         // Turn off the radio buttons
         for (button of document.getElementsByClassName('rbutton')){
@@ -153,8 +145,8 @@ function nextQuestion(selectedAnswer) {
         displayQuestion();
     } else {
         // Quiz round finished
-        console.log(`Round ${currentCategory} complete! You scored ${score} out of 10. Play Again!`);
         scores.push(score);
+        score=0;
         currentCategory++;
         if (currentCategory<categories.length){
             getQuestions(categories[currentCategory]);
