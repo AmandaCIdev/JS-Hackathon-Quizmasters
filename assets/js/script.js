@@ -135,6 +135,7 @@ function checkAnswer() {
         document.getElementById("button").style.display = 'none';
         document.getElementById("nextQbtn").style.display = 'inline-block';
     }
+
 }
 
 // Called on click on button #nextQbtn
@@ -168,7 +169,7 @@ function nextQuestion(selectedAnswer) {
         displayQuestion();
     } else {
         // Quiz round finished
-        console.log(`Round ${currentCategory} complete! You scored ${score} out of 10.`);
+        console.log(`Round ${currentCategory} complete! You scored ${score} out of 10. Play Again!`);
         currentCategory++;
         if (currentCategory<categories.length){
             getQuestions(categories[currentCategory]);
