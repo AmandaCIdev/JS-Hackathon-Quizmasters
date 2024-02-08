@@ -11,6 +11,7 @@ const categoryNames = ["Entertainment: Books",
 const difficulties = ["easy", "medium", "hard"];
 let questionData = [];
 let score = 0;
+let scores = [];
 let currentCategory = 0;
 let response;
 let thisData;
@@ -173,6 +174,7 @@ function nextQuestion(selectedAnswer) {
     } else {
         // Quiz round finished
         console.log(`Round ${currentCategory} complete! You scored ${score} out of 10. Play Again!`);
+        scores.push(score);
         currentCategory++;
         if (currentCategory<categories.length){
             getQuestions(categories[currentCategory]);
@@ -186,4 +188,10 @@ function displayQuizComplete() {
     document.getElementById('popOut3').style.display = 'none';
     document.getElementById('popOut4').innerHTML = `Quiz complete! You scored ${score}`
     document.getElementById('popOut4').style.display = 'block';
+    let totalScore = 0;
+    for (let i=0; i<categories.length; i++){
+        document.getElementById(`results${i+1}`).innerText = `${categories[i]}: ${scores[i]}/${nQuestionsPerRound}`;
+        totalScore += scores[i];
+    }
+    document.getElementById(`results4`).innerText = `Total Score: ${totalScore}/${nQuestionsPerRound*categories.length}`;
 }
