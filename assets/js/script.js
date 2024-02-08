@@ -12,6 +12,7 @@ let score = 0;
 let currentCategory = 0;
 let response;
 let thisData;
+let firstTime = true;
 
 // Function to move from landing page to category selection
 function goToCategories() {
@@ -71,22 +72,48 @@ function displayQuestion() {
     }
 }
 
-// check user response
-function checkAnswer() {
+async function waitAMoment() {
+    setTimeout(() => {
+        console.log("Waiting...");
+      }, 5000);
+}
+
+// Find out which answer the user has selected and the position of the correct answer
+function getWhichSelected(showCorrect) {
     let selectedAnswer = 0;
+    let correctAnswer = 0;
     for (i=1; i<5; i++){
         if (document.getElementById(`radio${i}`).checked){
             selectedAnswer=i;
         }
+        if (document.getElementById(`radio${i}Label`).innerText == questionData[currentCategory].results[0].correct_answer){
+            if (showCorrect){
+                document.getElementById(`radio${i}Label`).style.backgroundColor = 'rgba(50,205,50,0.5)';
+            }
+            correctAnswer = i;
+        } else {
+            if(showCorrect){
+                document.getElementById(`radio${i}Label`).style.backgroundColor = 'rgba(238, 75, 43,0.5)';
+            }
+        }
     }
-    if (selectedAnswer == 0){
+    return {'selected': selectedAnswer, 'correct': correctAnswer};
+}
+
+
+// check user response
+function checkAnswer() {
+    let theAnswers = getWhichSelected(true);
+    if (theAnswers.selected == 0){
         // User has not entered a response: display prompt
         document.getElementById('choose').style.display = 'block';
     } else {
         // Hide any prompt that has been displayed
         document.getElementById('choose').style.display = 'none';
+        // Reset the button
+        console.log("Resetting the button");
         // Check whether the user has selected the correct answer
-        if (document.getElementById(`radio${selectedAnswer}Label`).innerHTML == questionData[currentCategory].results[0].correct_answer) {
+        if (document.getElementById(`radio${theAnswers.selected}Label`).innerHTML == questionData[currentCategory].results[0].correct_answer) {
             // User was right
             console.log("correct");
             // Increment score
@@ -94,14 +121,36 @@ function checkAnswer() {
         } else {
             console.log("incorrect");
         }
-        // Move onto the next question
-        nextQuestion(selectedAnswer);
     }
+    // Turn off the radio buttons
+    for (button of document.getElementsByClassName('rbutton')){
+        button.disabled=true;
+    }
+    // Change to the other button
+    document.getElementById("button").style.display = 'none';
+    document.getElementById("nextQbtn").style.display = 'inline-block';
+}
+
+// Called on click on button #nextQbtn
+function onToNext() {
+    let theAnswers = getWhichSelected(false);
+    nextQuestion(theAnswers.selected);
 }
 
 // Display next question until end of quiz
 function nextQuestion(selectedAnswer) {
+    // enable the radio buttons
+    for (button of document.getElementsByClassName('rbutton')){
+        button.disabled=false;
+    }
+    // deselect selected answer
     document.getElementById(`radio${selectedAnswer}`).checked = false;
+    // change to the other button
+    document.getElementById("button").style.display = 'inline-block';
+    document.getElementById("nextQbtn").style.display = 'none';
+    for(let i=1; i<5; i++){
+        document.getElementById(`radio${i}Label`).style.backgroundColor = '';
+    }
     // Get rid of the previous question
     questionData[currentCategory].results.shift();
     // Either display next question or display end of quiz
