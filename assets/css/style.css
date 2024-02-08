@@ -46,13 +46,6 @@
     opacity: 0.5;
     color: white;
     width: 50%;
-}
-
-#popOut3 {
-    /* display: none; */
-}
-
-#popOut4 {
-    /* display: none; */
+    display: none;
 }
 
