@@ -51,7 +51,8 @@
     background-color: rgba(255,255,255,0.5);
 }
 /* Welcome screen div styling */
-#pop-out1{
+/* TODO raise with team in morning */
+#pop-out1{ 
     background-image: url("../images/quiz-night.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -113,10 +114,6 @@ img {
 
 .radioCorrect {
     display: none; 
-}
-
-#popOut4 {
-  height: 35vh;
 }
 
 #nextQbtn{

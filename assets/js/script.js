@@ -52,7 +52,7 @@ function runQuiz() {
 async function getQuestions(category) {
     console.log(`Loading questions for category ID ${category}`);
     console.log(`${API_URL_ROOT}${nQuestionsPerRound}${API_URL_P1}${category}${API_URL_MIDDLE}${difficulties[1]}${API_URL_TAIL}`);
-    response = await fetch(`${API_URL_ROOT}${category}${API_URL_MIDDLE}${difficulties[1]}${API_URL_TAIL}`);
+    response = await fetch(`${API_URL_ROOT}${nQuestionsPerRound}${API_URL_P1}${category}${API_URL_MIDDLE}${difficulties[1]}${API_URL_TAIL}`);
     console.log(response);
     thisData = await response.json();
     console.log(thisData);
@@ -186,14 +186,14 @@ function nextQuestion(selectedAnswer) {
 
 function displayQuizComplete() {
     document.getElementById('popOut3').style.display = 'none';
-    document.getElementById('popOut4').innerHTML = `Quiz complete! You scored ${score}`
-    document.getElementById('popOut4').style.display = 'block';
     let totalScore = 0;
     for (let i=0; i<categories.length; i++){
-        document.getElementById(`results${i+1}`).innerText = `${categories[i]}: ${scores[i]}/${nQuestionsPerRound}`;
+        document.getElementById(`results${i+1}`).innerText = `${categoryNames[i]}: ${scores[i]}/${nQuestionsPerRound}`;
         totalScore += scores[i];
     }
-    document.getElementById(`results4`).innerText = `Total Score: ${totalScore}/${nQuestionsPerRound*categories.length}`;
+    document.getElementById(`results4`).innerHTML = `Total Score: ${totalScore}/${nQuestionsPerRound*categories.length}`;
+    document.getElementById('popOut4').style.display = 'block';
+    progressBar.style.display='none';
 }
 
    // Function to reset the quiz and play again
@@ -205,13 +205,14 @@ function displayQuizComplete() {
     
     // Hide end of quiz message
     document.getElementById('popOut4').style.display = 'none';
+    progressBar.setAttribute('value', '0');
     
     // Show category selection screen
     goToCategories();
 }
 
 // Add event listener to execute playAgain() after DOM is fully loaded
-document.addEventListener("DOMContentLoaded", function() {
-    // Call playAgain function after DOM is fully loaded
-    playAgain();
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//     // Call playAgain function after DOM is fully loaded
+//     playAgain();
+// });
