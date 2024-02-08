@@ -51,16 +51,6 @@
     background-color: rgba(255,255,255,0.5);
 }
 /* Welcome screen div styling */
-#pop-out1{
-    background-image: url("../images/quiz-night.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 50rem;
-    width: 80rem;
-    color: #ffffff;
-    background-color: yellow; 
-    border-radius: 1rem;    
-}
 
 img {
     border-radius: 1rem;
@@ -113,11 +103,6 @@ img {
 
 .radioCorrect {
     display: none; 
-}
- 
-=======
-#popOut4 {
-  height: 35vh;
 }
 
 #nextQbtn{

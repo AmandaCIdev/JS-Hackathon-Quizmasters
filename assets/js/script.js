@@ -1,19 +1,23 @@
 // API URL Compononents
-const API_URL_ROOT = "https://opentdb.com/api.php?amount=10&category=";
+const API_URL_ROOT = "https://opentdb.com/api.php?amount=";
+const API_URL_P1 = "&category=";
 const API_URL_MIDDLE = "&difficulty=";
 const API_URL_TAIL = "&type=multiple";
+const nQuestionsPerRound = 5;
 // Initialise global variables
-const categories = [10, 13, 22];
+const categories = [13, 10, 22];
 const categoryNames = ["Entertainment: Books", 
-"Entertainment: Musicals &amp; Theatres", "Geography"];
+"Entertainment: Musicals & Theatres", "Geography"];
 const difficulties = ["easy", "medium", "hard"];
 let questionData = [];
 let score = 0;
+let scores = [];
 let currentCategory = 0;
 let response;
 let thisData;
 let firstTime = true;
 const progressBar = document.getElementById('progressBar');
+progressBar.setAttribute('max', `${nQuestionsPerRound*categories.length}`);
 
 // Function to move from landing page to category selection
 function goToCategories() {
@@ -26,7 +30,6 @@ function goToCategories() {
 
 // Populate HTML elements with category names
 for (let i=0; i<categoryNames.length; i++){
-    console.log(`Setting category name ${categoryNames[i]}`);
     document.getElementById(`category${i+1}`).innerHTML = categoryNames[i];
 }
 
@@ -39,48 +42,27 @@ function runQuiz() {
     document.getElementById('progressBar').style.display ="block";
 }
 
-// Run any non event-triggered functions
-
-// Function definitions
-
 
 // Fetch the questions from the API for the selected category & difficulty
 async function getQuestions(category) {
     console.log(`Loading questions for category ID ${category}`);
-    console.log(`${API_URL_ROOT}${category}${API_URL_MIDDLE}${difficulties[1]}${API_URL_TAIL}`);
-    response = await fetch(`${API_URL_ROOT}${category}${API_URL_MIDDLE}${difficulties[1]}${API_URL_TAIL}`);
-    console.log(response);
+    response = await fetch(`${API_URL_ROOT}${nQuestionsPerRound}${API_URL_P1}${category}${API_URL_MIDDLE}${difficulties[1]}${API_URL_TAIL}`);
     thisData = await response.json();
-    console.log(thisData);
     questionData.push(thisData);
-    console.log(questionData[questionData.length-1]);
-    console.log(questionData[questionData.length-1]);
-    console.log(questionData[questionData.length-1].results[0].question);
-    console.log(questionData[questionData.length-1].results[0].correct_answer);
-    for (answer of questionData[questionData.length-1].results[0].incorrect_answers)
-    {
-        console.log(answer);
-    }
     document.getElementById('currentCategoryHeading').innerText = `Round ${currentCategory+1} of 3: ${categoryNames[currentCategory]}`;
     displayQuestion();
 }
 
 // Display a question to the user
 function displayQuestion() {
-    document.getElementById('question').innerHTML = questionData[currentCategory].results[0].question;
+    document.getElementById('question').innerHTML = debugString(questionData[currentCategory].results[0].question);
     // assemble array of answers to avoid always having correct answer in same place
     let answers = [questionData[currentCategory].results[0].correct_answer, ...questionData[currentCategory].results[0].incorrect_answers];
     // shuffle the options using sort() method
     answers.sort(() => Math.random() - 0.5);
     for (let i=0; i<answers.length; i++){
-        document.getElementById(`radio${i+1}Label`).innerText = answers[i];
+        document.getElementById(`radio${i+1}Label`).innerText = debugString(answers[i]);
     }
-}
-
-async function waitAMoment() {
-    setTimeout(() => {
-        console.log("Waiting...");
-      }, 5000);
 }
 
 // Find out which answer the user has selected and the position of the correct answer
@@ -91,7 +73,7 @@ function getWhichSelected(showCorrect) {
         if (document.getElementById(`radio${i}`).checked){
             selectedAnswer=i;
         }
-        if (document.getElementById(`radio${i}Label`).innerText == questionData[currentCategory].results[0].correct_answer){
+        if (document.getElementById(`radio${i}Label`).innerText == debugString(questionData[currentCategory].results[0].correct_answer)){
             if (showCorrect){
                 document.getElementById(`radio${i}Label`).style.backgroundColor = 'rgba(50,205,50,0.5)';
             }
@@ -116,16 +98,10 @@ function checkAnswer() {
         theAnswers = getWhichSelected(true);
         // Hide any prompt that has been displayed
         document.getElementById('choose').style.display = 'none';
-        // Reset the button
-        console.log("Resetting the button");
         // Check whether the user has selected the correct answer
-        if (document.getElementById(`radio${theAnswers.selected}Label`).innerHTML == questionData[currentCategory].results[0].correct_answer) {
-            // User was right
-            console.log("correct");
+        if (document.getElementById(`radio${theAnswers.selected}Label`).innerHTML == debugString(questionData[currentCategory].results[0].correct_answer)) {
             // Increment score
             score++;
-        } else {
-            console.log("incorrect");
         }
         // Turn off the radio buttons
         for (button of document.getElementsByClassName('rbutton')){
@@ -169,24 +145,32 @@ function nextQuestion(selectedAnswer) {
         displayQuestion();
     } else {
         // Quiz round finished
-        console.log(`Round ${currentCategory} complete! You scored ${score} out of 10. Play Again!`);
+        scores.push(score);
+        score=0;
         currentCategory++;
         if (currentCategory<categories.length){
             getQuestions(categories[currentCategory]);
         } else {
-            document.getElementById('popOut3').style.display = 'none';
-            document.getElementById('popOut4').style.display = 'block';
-            document.getElementById('popOut4').innerHTML = `Quiz complete! You scored ${score}
-        <div class="row">
-        <div class="col-sm-12 text-center">"TEAM_NAME" you scored {} correct answers out of{}!</div>
-        <div class="col-sm-12 text-center">Submit Score!</div>
-        </div>
-        <div class="col-sm-12 text-center"><input type="submit" value="Play Again!" id="playAgainButton" class="btn btn-primary btn-block" onclick="playAgain()"></div>`;
+            displayQuizComplete();
         }
     }
 }
+
+// Display the final screen showing the scores
+function displayQuizComplete() {
+    document.getElementById('popOut3').style.display = 'none';
+    let totalScore = 0;
+    for (let i=0; i<categories.length; i++){
+        document.getElementById(`results${i+1}`).innerText = `${categoryNames[i]}: ${scores[i]}/${nQuestionsPerRound}`;
+        totalScore += scores[i];
+    }
+    document.getElementById(`results4`).innerHTML = `Total Score: ${totalScore}/${nQuestionsPerRound*categories.length}`;
+    document.getElementById('popOut4').style.display = 'block';
+    progressBar.style.display='none';
+}
+
    // Function to reset the quiz and play again
-function playAgain() {
+   function playAgain() {
     
     score = 0;
     currentCategory = 0;
@@ -194,13 +178,46 @@ function playAgain() {
     
     // Hide end of quiz message
     document.getElementById('popOut4').style.display = 'none';
+    progressBar.setAttribute('value', '0');
     
     // Show category selection screen
     goToCategories();
 }
 
-// Add event listener to execute playAgain() after DOM is fully loaded
-document.addEventListener("DOMContentLoaded", function() {
-    // Call playAgain function after DOM is fully loaded
-    playAgain();
-});
+// Function to detect HTML character codes in strings
+// function getIndicesOf from https://stackoverflow.com/questions/3410464/how-to-find-indices-of-all-occurrences-of-one-string-in-another-in-javascript
+// user Tim Down
+function getIndicesOf(searchStr, str, caseSensitive) {
+    var searchStrLen = searchStr.length;
+    if (searchStrLen == 0) {
+        return [];
+    }
+    var startIndex = 0, index, indices = [];
+    if (!caseSensitive) {
+        str = str.toLowerCase();
+        searchStr = searchStr.toLowerCase();
+    }
+    while ((index = str.indexOf(searchStr, startIndex)) > -1) {
+        indices.push(index);
+        startIndex = index + searchStrLen;
+    }
+    return indices;
+}
+
+// Use getIndicesOf to remove all HTML character codes from input string
+function debugString(str)
+{
+    let indices = getIndicesOf("&", str);
+    let scIndices;
+    let subStr = '';
+    if (indices.length==0){
+        return str;
+    }
+    while (indices.length>0){
+        scIndices = getIndicesOf(";", str);
+        subStr = str.substring(indices[0], scIndices[0]+1);
+        str = str.replace(subStr,'');
+        indices = getIndicesOf("&", str);
+    } 
+    return str;
+}
