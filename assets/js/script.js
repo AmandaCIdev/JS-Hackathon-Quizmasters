@@ -67,7 +67,7 @@ function displayQuestion() {
     // shuffle the options using sort() method
     answers.sort(() => Math.random() - 0.5);
     for (let i=0; i<answers.length; i++){
-        document.getElementById(`radio${i+1}Label`).innerHTML = answers[i];
+        document.getElementById(`radio${i+1}Label`).innerText = answers[i];
     }
 }
 
