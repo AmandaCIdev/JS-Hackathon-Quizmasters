@@ -51,13 +51,6 @@
     border-radius: 1.5rem;
     background-image: linear-gradient(to right, rgb(121, 32, 223) , rgb(72, 228, 243));
     padding: 1rem;
-}
-
-#popOut3 {
-    /* display: none; */
-}
-
-#popOut4 {
-    /* display: none; */
+    display: none;
 }
 
