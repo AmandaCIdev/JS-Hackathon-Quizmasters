@@ -16,6 +16,7 @@ let thisData;
 // Function to move from landing page to category selection
 function goToCategories() {
     document.getElementById("popOut1").style.display = 'none';
+    document.getElementById("trivia-logo").style.display = "block"
     document.getElementById('popOut2').style.display = 'block';
 }
 
