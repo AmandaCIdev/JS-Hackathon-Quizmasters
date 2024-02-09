@@ -14,9 +14,22 @@
     font-family: 'Limelight', sans-serif;
   }
 
+  h2,
+  h3,
+  h4 {
+    font-weight: bold;
+  }
+
   h2 {
     font-size: 1.5rem;
-    
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  h4 {
+    font-size: 1.15rem;
   }
   
   .btn{
@@ -33,10 +46,6 @@
     bottom: 5%;
     
 }
-
-  h3 {
-    font-size: 1.3rem;
-  }
 
 
 #choose {
@@ -66,7 +75,7 @@ img {
     display: none;
     margin-top: -3rem;
 }
-
+/* Styling other screen divs */
 #popOut2, 
 #popOut3, 
 #popOut4 { 
@@ -82,6 +91,19 @@ img {
     align-items: center;
     margin-top: 5rem;
 }
+/* Question display */
+.option,
+.result {
+  width: 80%;
+}
+
+/* Final results total display */
+.results4{
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+/* Buttons */
 
 #playAgainButton {
     background-color: #007bff; 
@@ -98,17 +120,11 @@ img {
 }
 
 
-
-/*-----------radioCorrect------------*/
-
-.radioCorrect {
-    display: none; 
-}
-
 #nextQbtn{
     display: none;
 }
 
+/* Media Queries */
 @media only screen and (min-width: 400px) {
   h1 {
       font-size: 3rem;
@@ -123,6 +139,11 @@ h1 {
   }
 
   #trivia-logo {
+    width: 50%;
+  }
+
+  .option,
+  .result {
     width: 50%;
   }
 }
