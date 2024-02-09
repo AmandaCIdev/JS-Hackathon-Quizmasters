@@ -208,6 +208,7 @@ h1 {
 @media only screen and (min-width: 1200px) {
   img {
     margin-top: 1rem;
+    width: 60%;
   }
   #quiz-prize {
     margin-top: 0.3rem;
