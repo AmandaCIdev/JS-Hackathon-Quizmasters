@@ -130,14 +130,14 @@ h1 {
 
 @media only screen and (min-width: 1200px) {
   img {
-    margin-top: 4rem;
+    margin-top: 3rem;
   }
   #quiz-prize {
     margin-top: 2rem;
   }
   #trivia-logo {
     width: 60%;
-    margin-top: 2rem;
+    margin-top: 0.5rem;
   }
   #home-image {
     width: 50%;
