@@ -18,11 +18,16 @@ let thisData;
 let firstTime = true;
 const progressBar = document.getElementById('progressBar');
 progressBar.setAttribute('max', `${nQuestionsPerRound*categories.length}`);
+document.getElementById('categories').innerText = `Round Categories`;
+let qPerRoundHead = document.createElement('h4');
+qPerRoundHead.innerText = `${nQuestionsPerRound} Questions Per Round, Multiple Choice`;
+document.getElementById('popOut2').children[0].children[0].appendChild(qPerRoundHead);
+let finalScore = document.createElement('h4');
 
 // Function to move from landing page to category selection
 function goToCategories() {
     document.getElementById("popOut1").style.display = 'none';
-    document.getElementById("trivia-logo").style.display = "block"
+    document.getElementById("trivia-logo").style.display = "block";
     document.getElementById('popOut2').style.display = 'block';
     
 }
@@ -164,7 +169,8 @@ function displayQuizComplete() {
         document.getElementById(`results${i+1}`).innerText = `${categoryNames[i]}: ${scores[i]}/${nQuestionsPerRound}`;
         totalScore += scores[i];
     }
-    document.getElementById(`results4`).innerHTML = `Total Score: ${totalScore}/${nQuestionsPerRound*categories.length}`;
+    finalScore.innerHTML = `Total Score: ${totalScore}/${nQuestionsPerRound*categories.length}`;
+    document.getElementById(`results4`).appendChild(finalScore);
     document.getElementById('popOut4').style.display = 'block';
     progressBar.style.display='none';
 }
