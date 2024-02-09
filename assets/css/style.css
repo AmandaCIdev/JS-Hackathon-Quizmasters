@@ -1,55 +1,91 @@
 @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+
 * {
     box-sizing:border-box;
     margin: 0;
-    padding: 0; 
-    font-family: 'Limelight', sans-serif;
-    font-size: 24;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
   }
 
   h1 {
     font-size: 2rem;
     margin-top: 2rem;
+    font-family: 'Limelight', sans-serif;
+  }
+
+  h2,
+  h3,
+  h4 {
+    font-weight: bold;
   }
 
   h2 {
     font-size: 1.5rem;
   }
 
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  h4 {
+    font-size: 1.15rem;
+  }
+  
+  .btn{
+    background-color: indigo;
+    font-family: 'Limelight', sans-serif;
+}
+
+#progressBar {
+    width: 80%;
+    height: 3rem;
+    margin-top: 2rem;
+    display: none;
+    vertical-align: baseline;
+    bottom: 5%;
+    
+}
+
 
 #choose {
     display: none;
-    color: palevioletred;
+    color: rgb(65, 5, 3);
+    font-size: 1.5rem;
+    border: 2px solid rgb(65, 5, 3);
+    width: 30rem;
+    height: 2.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255,255,255,0.5);
 }
 /* Welcome screen div styling */
-#pop-out1{
-    background-image: url("../images/quiz-night.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 50rem;
-    width: 80rem;
-    color: #ffffff;
-    background-color: yellow; 
-    border-radius: 1rem;    
-}
 
 img {
     border-radius: 1rem;
-    margin-top: 5rem;
+    margin-top: 1rem;
+    width: 90%;
 }
 
 #quiz-prize {
-  margin-top: 5rem;
+  margin-top: 1rem;
+  font-size: 16px;
 }
+
 
 #trivia-logo {
     display: none;
-    margin-top: 5rem;
+    margin-top: 1rem;
+    width: 100%;
 }
 
-#popOut2,
-#popOut3,
-#popOut4 {
+#home-image{
+  margin-top: 2rem;
+}
+/* Styling other screen divs */
+#popOut2, 
+#popOut3, 
+#popOut4 { 
     background-color: #3F00FF;
     color: white;
     width: 90%;
@@ -60,52 +96,139 @@ img {
     display: none;
     line-height: 2.5rem;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 2rem;
+}
+/* Question display */
+.option,
+.result {
+  width: 80%;
 }
 
-#popOut4 {
-  height: 35vh;
+/* Final results total display */
+.results4{
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
+/* Buttons */
+
+#playAgainButton {
+    background-color: #007bff; 
+    color: rgb(247, 237, 237); /* White text color */
+    padding: 10px 20px; /* Padding around the text */
+    font-size: 16px; /* Font size */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+}
+
+#playAgainButton:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+
+#nextQbtn{
+    display: none;
+}
+
+/* Media Queries */
 @media only screen and (min-width: 400px) {
   h1 {
-      font-size: 3rem;
+      font-size: 1.8rem;
       margin-top: 1rem
     }
-}
+    img{
+      margin-top: 0.5rem;
+      width:90%;
+    }
+    #quiz-prize {
+      margin-top: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    #trivia-logo {
+      display: none;
+      margin-top: 1rem;
+      width: 90%;
+  }
+  #popOut2, 
+  #popOut3, 
+  #popOut4{
+
+    margin-top: 1.5rem;
+
+  }
+  }
+
 
 @media only screen and (min-width: 740px) {
 h1 {
-    font-size: 6rem;
+    font-size: 3rem;
     margin-top: 1rem
   }
 
+  img{
+    margin-top: 0.5rem;
+    width:90%;
+  }
+
   #trivia-logo {
+    width: 80%;
+  }
+  
+  #quiz-prize {
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .option,
+  .result {
     width: 50%;
   }
 }
 
 @media only screen and (min-width: 900px) {
   #quiz-prize {
-    margin-top: 3rem;
+    margin-top: 1.5rem;
   }
 
   #home-image {
-    width: 50%;
+    width: 70%;
+    margin-top: 2rem;
   }
+  img{
+    margin-top: 0.7rem;
+   
+  }
+  #trivia-logo {
+    width: 70%;
+  }
+  
 }
 
 @media only screen and (min-width: 1200px) {
   img {
-    margin-top: 4rem;
+    margin-top: 1rem;
+    width: 60%;
   }
   #quiz-prize {
-    margin-top: 2rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
   }
   #trivia-logo {
     width: 60%;
+    height:45%;
+    margin-top: 1.5rem;
   }
   #home-image {
-    width: 50%;
+    width: 65%;
+  }
+  #go-quiz-btn{
+    margin-top: -1rem;
+  }
+  h1 {
+    margin-top: -0.1rem;
+    margin-bottom: -1rem;
   }
 }
+
+

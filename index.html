@@ -3,33 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pub Quiz</title>
     <link rel="icon" href="assets/images/starfavicon.png" type="image/png">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
     <!-- Style sheet -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Google fonts -->
-
 </head>
 
 <body>
     <!-- First contents of main area div is a Welcome -->
     <div class="row" id="popOut1">
-        <div class="col-sm-12 text-center"><h1>WELCOME TO PUB QUIZ!</h1></div>
+      <div class="col-sm-12 text-center"><h1>WELCOME TO PUB QUIZ!</h1></div>
         <div class="col-sm-12 text-center">
-            <div class="img-container mx-auto" id="home-image">
-                <img src="assets/images/triviabanner.png" style="width: 65%;"></div>
+            <div class="img-container mx-auto">
+                <img src="assets/images/triviabanner.png"  alt="Website banner image introducing quiz game.">
             </div>
+        </div>
         <div class="col-sm-12 text-center" id="quiz-prize"><p>Winner gets a free meal for 2!</p></div>
-        <div class="col-sm-12 text-center"><button type="button" class="btn btn-secondary" onclick="goToCategories()">Go to the Quiz</button></div>
+        <div class="col-sm-12 text-center" id="go-quiz-btn"><button type="button" class="btn btn-secondary" onclick="goToCategories()">Go to the Quiz</button></div>
     </div>
 
     <div class="container" id="trivia-logo">
         <div class="row">
             <div class="col-sm-12 text-center">
                 <div class="img-container">
-                    <img src="assets/images/triviabanner.png" style="width: 60%;" id="home-image">
+                    <img src="assets/images/triviabanner.png"  id="home-image" alt="Scaled down version of website banner image">
                 </div>
             </div>
         </div>
@@ -50,46 +52,66 @@
         <div class="category h-10 col-sm-12 text-center" id="category3">
 
         </div>
-
         <div class="col-sm-12 text-center"><input type="submit" value="Start Quiz!" id="categoryButton" class="btn btn-primary btn-block" onclick="runQuiz()"></div>
     </div>
 </div>
 
-
 <div class="questionPopout container" id="popOut3">
     <div class="row d-flex justify-content-center">
         <div class="col-sm-12 text-center">
-            <h2 id="question">Questions</h2>
+            <h2 id="currentCategoryHeading">Category Heading</h2>
+            <h3 id="question">Questions</h3>
         </div>
         <div class="option col-sm-6 offset-2 text-start mt-3 ">
             <input type="radio" name="answer" id="radio1" class="rbutton">
             <label for="radio1" id="radio1Label"></label>
+           
         </div>
         <div class="option col-sm-6 offset-2 text-start">
             <input type="radio" name="answer" id="radio2" class="rbutton">
             <label for="radio2" id="radio2Label"></label>
+            
         </div>
         <div class="option col-sm-6 offset-2 text-start">
             <input type="radio" name="answer" id="radio3" class="rbutton">
             <label for="radio3" id="radio3Label"></label>
+            
         </div>
         <div class="option col-sm-6 offset-2 text-start mb-3">
             <input type="radio" name="answer" id="radio4" class="rbutton">
             <label for="radio4" id="radio4Label"></label>
+            
         </div>
         <div id="choose" class="col-sm-12 text-center">
             <p>Please select an option</p>
         </div>
         <div class="col-sm-12 text-center"><input type="submit" value="Check" id="button" class="btn btn-primary btn-block" onclick="checkAnswer()"></div>
+        <div class="col-sm-12 text-center"><input type="submit" value="Next Question" id="nextQbtn" class="btn btn-primary btn-block" onclick="onToNext()"></div>
     </div>
 </div>
     <div class="container" id="popOut4">
         <div class="row ">
-            <div class="col-sm-12 text-center">"TEAM_NAME" you scored {} correct answers out of{}!</div>
-            <div class="col-sm-12 text-center">Submit Score!</div>
+
+            <div class="col-sm-12 text-center"><h2>Congratulations! You have finished the quiz. Scores:</h2></div>
+
+            <div class="result h-10 col-sm-6 offset-2 text-start mt-3 " id="results1">
+            </div>
+            <div class="result h-10 col-sm-6 offset-2 text-start mt-3 " id="results2">
+    
+            </div>
+            <div class="result h-10 col-sm-6 offset-2 text-start mt-3 " id="results3">    
+            </div>
+            <div class="col-sm-12 text-center" id="results4"></div>
+            <div class="col-sm-12 text-center"><button type="button" class="btn btn-primary" onclick="playAgain()">Play Again!</button></div>
         </div>
     </div>
-
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12 offset-1 "><progress id="progressBar" max="30" value="0"></progress></div>
+        </div>
+    </div>
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/bf8f06698b.js" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- JS -->
