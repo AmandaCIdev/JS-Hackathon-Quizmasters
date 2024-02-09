@@ -14,9 +14,22 @@
     font-family: 'Limelight', sans-serif;
   }
 
+  h2,
+  h3,
+  h4 {
+    font-weight: bold;
+  }
+
   h2 {
     font-size: 1.5rem;
-    
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  h4 {
+    font-size: 1.15rem;
   }
   
   .btn{
@@ -33,10 +46,6 @@
     bottom: 5%;
     
 }
-
-  h3 {
-    font-size: 1.3rem;
-  }
 
 
 #choose {
@@ -73,7 +82,7 @@ img {
 #home-image{
   margin-top: 2rem;
 }
-
+/* Styling other screen divs */
 #popOut2, 
 #popOut3, 
 #popOut4 { 
@@ -89,6 +98,19 @@ img {
     align-items: center;
     margin-top: 2rem;
 }
+/* Question display */
+.option,
+.result {
+  width: 80%;
+}
+
+/* Final results total display */
+.results4{
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+/* Buttons */
 
 #playAgainButton {
     background-color: #007bff; 
@@ -105,17 +127,11 @@ img {
 }
 
 
-
-/*-----------radioCorrect------------*/
-
-.radioCorrect {
-    display: none; 
-}
-
 #nextQbtn{
     display: none;
 }
 
+/* Media Queries */
 @media only screen and (min-width: 400px) {
   h1 {
       font-size: 1.8rem;
@@ -162,6 +178,11 @@ h1 {
   #quiz-prize {
     margin-top: 1rem;
     margin-bottom: 0.3rem;
+  }
+
+  .option,
+  .result {
+    width: 50%;
   }
 }
 
