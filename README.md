@@ -8,25 +8,44 @@ Quizmasters is an interactive web application designed to bring the quiz experie
 
 - Multiple Choice Questions: Create and manage various types of multiple-choice questions.
 
-- Difficulty Levels: Varying difficulty levels to help accommodate all users.
-
 - Real-time Scoring: Players compete in real-time, seeing their scores update after each question. This also update a progress bar to track the progress throughout.
 
 - Leaderboards: Track individual and team scores throughout the quiz.
 
 - Multiple Rounds: Selection of quiz themes to add each of the 3 rounds, adding variety and excitement.
 
-- Sound Effects/ Colours: Enhance the UX for question to reveal the correct answer and then updates the score.
+- Colours: Enhance the UX for question to reveal the correct answer and then updates the score.
 
-- Customization: Allow users to personalize their experience with team names (Usernames).
+- Play again: Button added at the end of quiz so users have a good UX experience.
 
 ## UX/UI:
 
 - Simple navigation: A clear instruction to ensure a smooth user experience for all ages and skill levels.
 - Responsive Design: Adapts to different devices, from smartphones to desktops, for accessibility and convenience to all users.
 - Visually Appealing: Produce visuals and animations to keep users engaged throughout the quiz.
+- Clear website and function not to overwell the users.
 
 ## Wireframes:
+Home / Landing Page  
+<img src="assets/images/wireframequiz1.png" alt="Image of homescreen wireframes" width="700" height="500">
+
+Rounds / Rules of quiz section  
+<img src="assets/images/wireframequiz2.png" alt="Image of rounds and rules wireframes" width="700" height="500">
+
+Quiz Page / Select Answer  
+<img src="assets/images/wireframequiz3.png" alt="Image of quiz page wireframes" width="700" height="500">
+
+Final Score Page  
+<img src="assets/images/wireframequiz4.png" alt="Image of final score wireframes" width="700" height="500">
+
+Please Select Answer  
+<img src="assets/images/wireframequiz5.png" alt="Image of please select answer page wireframes" width="700" height="500">
+
+Mobile Screen  
+<img src="assets/images/wireframequiz6.png" alt="Image of mobile wireframes" width="200" height="400">
+
+Ipad Screen  
+<img src="assets/images/wireframequiz7.png" alt="Image of ipad wireframes" width="400" height="600">
 
 ## User Stories:
 
@@ -52,10 +71,14 @@ Quizmasters is an interactive web application designed to bring the quiz experie
 - Testing throughout project to ensure individual components function as expected.
 - User testing with diverse demographics helps identify and address usability issues.
 
-| Feature       | Discription   | Pass/ Fail    |
-| ------------- | ------------- | ------------- |
-| Cell 1, row 1 | Cell 2, row 1 | Cell 3, row 1 |
-| Cell 1, row 2 | Cell 2, row 2 | Cell 3, row 2 |
+| Feature               | Discription                                                                | Pass/ Fail    |
+| -------------         | -------------                                                              | ------------- |
+| Browser compatibility | Multiple browser tested, working responsively on Chrome, Firefox and Edge  | Pass          |
+| Code validation       | Cell 2, row 2                                                              | Pass          |
+| Functionality         |                                                                            |               |
+| Usability             |                                                                            |               |
+| Performance           |                                                                            |               |
+| SEO                   |                                                                            |               |
 
 ## Deployment:
 
@@ -63,43 +86,49 @@ Quizmasters is an interactive web application designed to bring the quiz experie
    - The application has been deployed on GitHub.
 2. Connect your GitHub repository to the platform:
    - Authorize the platform to access your repository and choose the specific branch to deploy (main).
-     add image here
+   - https://alphabetjim.github.io/JS-Hackathon-Quizmasters/ 
+     ![Alt text for the image](assets/images/deployimagequiz.JPG)
+
 3. Verify deployment:
-   - Access your project URL and test it thoroughly to ensure everything works as expected.
-     add image here
+   - Accessed the project URL and tested it thoroughly to ensure everything works as expected.
 
 ## Bugs & Fixes:
 
 ## Credits:
-
-- Colour pallets
++ Colour pallets
   - https://cssgradient.io/shades-of-blue/
-- Colour pallets website to choose colours
++ Colour pallets website to choose colours
   - https://www.color-hex.com/color-palettes/
-- Google Fonts
++ Google Fonts 
   - https://fonts.google.com/specimen/Limelight
-- Trivia API
++ Trivia API
   - https://opentdb.com
-- To test if website responsiveon all devices
++ To test if website responsiveon all devices
   - https://ui.dev/amiresponsive
++ Git: was used for version control by utilising the Gitpod terminal to commit to Git and Push to GitHub.
++ GitHub: is used as the repository for the project's code after being pushed from Git and for UX Kanban Board.
++ Balsamiq: was used to create the wireframes during the design process.
++ "movie camera" Emoji - Download for free – Iconduck was used to import the ‘camera film’ icon, placed into the HTML, to be viewed on the tab in the browser.
++ Quora and Stackoverflow was used to get advice from software developers.
++ Google was used for queries. -https://learn.codeinstitute.net/ci_program/ was used to revise instructions and collect code.
++ https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser
++ Google play source quiz image on main page.
 
-Future Features:
+## Future Features:
 
-Implement video chat functionality for a more immersive social experience.
-Introduce power-ups or bonus questions to add strategic elements to the quiz.
-Integrate with social media platforms for wider reach and community building.
+- Username: Add username inputs to quiz to be able to make team names.
+- Difficulty Levels: Varying difficulty levels to help accommodate all users.
 
-**Frameworks, Libraries & Programs Used:**
+## Quizmasters Developer Team
 
--Google Fonts: was used to import the 'Limelight' font into the style.css file which are used on all pages of the project.
--Font Awesome: was used to add icons for aesthetic and UX purposes.
--Git: was used for version control by utilising the Gitpod terminal to commit to Git and Push to GitHub.
--GitHub: is used as the repository for the project's code after being pushed from Git and for UX Kanban Board.
--Balsamiq: was used to create the wireframes during the design process. -https://ui.dev/amiresponsive was used to test compatibility on all devices.
-"movie camera" Emoji - Download for free – Iconduck was used to import the ‘camera film’ icon, placed into the HTML, to be viewed on the tab in the browser.
--Quora was used to get advice from software developers.
--Google was used for queries. -https://learn.codeinstitute.net/ci_program/ was used to revise instructions and collect code.
++ James Bridgwater Court
+  - https://github.com/alphabetjim
 
--https://developer.chrome.com/docs/lighthouse/pwa/pwa-cross-browser
++ Andy Osborne
+  - https://github.com/Andy-James-Osborne
 
--https://cssgradient.io/shades-of-blue/ we used for a color blue.
++ Amanda Mascurine
+  - https://github.com/AmandaCIdev
+
++ Carl Sparks
+  - https://github.com/Sparkeeee
