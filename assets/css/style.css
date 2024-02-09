@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+
 * {
     box-sizing:border-box;
     margin: 0;
-    padding: 0; 
+    padding: 0;
     font-family: 'Roboto', sans-serif;
-    font-size: 24;
+    font-size: 24px;
   }
 
   h1 {
@@ -50,16 +51,6 @@
     background-color: rgba(255,255,255,0.5);
 }
 /* Welcome screen div styling */
-#pop-out1{
-    background-image: url("../images/quiz-night.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 50rem;
-    width: 80rem;
-    color: #ffffff;
-    background-color: yellow; 
-    border-radius: 1rem;    
-}
 
 img {
     border-radius: 1rem;
@@ -76,9 +67,9 @@ img {
     margin-top: -3rem;
 }
 
-#popOut2,
-#popOut3,
-#popOut4 {
+#popOut2, 
+#popOut3, 
+#popOut4 { 
     background-color: #3F00FF;
     color: white;
     width: 90%;
@@ -92,8 +83,26 @@ img {
     margin-top: 5rem;
 }
 
-#popOut4 {
-  height: 35vh;
+#playAgainButton {
+    background-color: #007bff; 
+    color: rgb(247, 237, 237); /* White text color */
+    padding: 10px 20px; /* Padding around the text */
+    font-size: 16px; /* Font size */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+}
+
+#playAgainButton:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+
+
+/*-----------radioCorrect------------*/
+
+.radioCorrect {
+    display: none; 
 }
 
 #nextQbtn{
